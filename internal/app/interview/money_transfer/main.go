@@ -15,6 +15,12 @@ func (account *Account) Transfer(from, to *Account, amount int64) error {
 	if amount <= 0 {
 		return errors.New("amount must be greater than zero")
 	}
+	if from == nil || to == nil {
+		return errors.New("from and to must both be specified")
+	}
+	if from.Id == to.Id {
+		return errors.New("from and to id cannot be the same account")
+	}
 	first, second := from, to
 	if from.Id < to.Id {
 		first, second = second, from
