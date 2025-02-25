@@ -12,13 +12,13 @@ func (car car) Move() {
 	fmt.Println("Moving")
 }
 
-func New() *car {
+func NewCar() *car {
 	return nil
 }
 
 func main() {
 	var transport Transport
-	mazda := New()
+	mazda := NewCar()
 	transport = mazda
 
 	if transport == nil {
